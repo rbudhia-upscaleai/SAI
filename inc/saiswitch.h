@@ -3617,6 +3617,28 @@ typedef enum _sai_switch_attr_t
     SAI_SWITCH_ATTR_PERFMON_LIST,
 
     /**
+     * @brief The hash object for OFH packets with OFH.F=1 going through ECMP
+     *
+     * @type sai_object_id_t
+     * @flags CREATE_AND_SET
+     * @objects SAI_OBJECT_TYPE_HASH
+     * @allownull true
+     * @default SAI_NULL_OBJECT_ID
+     */
+    SAI_SWITCH_ATTR_ECMP_HASH_OFH_F1,
+
+    /**
+     * @brief The hash object for OFH packets with OFH.F=0 going through ECMP
+     *
+     * @type sai_object_id_t
+     * @flags CREATE_AND_SET
+     * @objects SAI_OBJECT_TYPE_HASH
+     * @allownull true
+     * @default SAI_NULL_OBJECT_ID
+     */
+    SAI_SWITCH_ATTR_ECMP_HASH_OFH_F0,
+
+    /**
      * @brief End of attributes
      */
     SAI_SWITCH_ATTR_END,
