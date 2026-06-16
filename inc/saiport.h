@@ -4154,6 +4154,18 @@ typedef enum _sai_port_stat_t
     /** Number of transmitted packets with frame size 1519 octets to max MTU supported by the port */
     SAI_PORT_STAT_ETHER_OUT_PKTS_1519_TO_MAX_OCTETS,
 
+    /** SAI port stat OFH in receives */
+    SAI_PORT_STAT_OFH_IN_PKTS,
+
+    /** SAI port stat OFH in octets */
+    SAI_PORT_STAT_OFH_IN_OCTETS,
+
+    /** SAI port stat OFH out pkts */
+    SAI_PORT_STAT_OFH_OUT_PKTS,
+
+    /** SAI port stat OFH out octets */
+    SAI_PORT_STAT_OFH_OUT_OCTETS,
+
     /** Port stat in drop reasons range start */
     SAI_PORT_STAT_IN_DROP_REASON_RANGE_BASE = 0x00001000,
 
