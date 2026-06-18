@@ -175,7 +175,7 @@ typedef enum _sai_native_hash_field_t
     /** Native hash field RDMA packet BTH destination queue pair */
     SAI_NATIVE_HASH_FIELD_RDMA_BTH_DEST_QP = 0x00000023,
 
-    /** Native hash field RDMA packet BTH destination queue pair */
+    /** Native hash field OFH Flow Label */
     SAI_NATIVE_HASH_FIELD_OFH_FLOW_LABEL = 0x00000024,
 
     /** No field - for compatibility, must be last */

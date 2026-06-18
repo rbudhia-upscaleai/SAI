@@ -327,6 +327,9 @@ typedef enum _sai_acl_action_type_t
     /** Set Packet OFH COS */
     SAI_ACL_ACTION_TYPE_SET_OFH_COS = 0x0000003e,
 
+    /** Decrement OFH TTL */
+    SAI_ACL_ACTION_TYPE_DECREMENT_OFH_TTL = 0x0000003f,
+
     /** Custom range base value */
     SAI_ACL_ACTION_TYPE_CUSTOM_RANGE_BASE = 0x10000000
 
@@ -1741,9 +1744,18 @@ typedef enum _sai_acl_table_attr_t
     SAI_ACL_TABLE_ATTR_FIELD_OFH_CNM = SAI_ACL_TABLE_ATTR_FIELD_START + 0x170,
 
     /**
+     * @brief OFH Version Field
+     *
+     * @type bool
+     * @flags CREATE_ONLY
+     * @default false
+     */
+    SAI_ACL_TABLE_ATTR_FIELD_OFH_VER = SAI_ACL_TABLE_ATTR_FIELD_START + 0x171,
+
+    /**
      * @brief End of ACL Table Match Field
      */
-    SAI_ACL_TABLE_ATTR_FIELD_END = SAI_ACL_TABLE_ATTR_FIELD_OFH_CNM,
+    SAI_ACL_TABLE_ATTR_FIELD_END = SAI_ACL_TABLE_ATTR_FIELD_OFH_VER,
 
     /**
      * @brief ACL table entries associated with this table.
@@ -3010,9 +3022,18 @@ typedef enum _sai_acl_entry_attr_t
     SAI_ACL_ENTRY_ATTR_FIELD_OFH_CNM = SAI_ACL_ENTRY_ATTR_FIELD_START + 0x170,
 
     /**
+     * @brief OFH Version Field
+     *
+     * @type sai_acl_field_data_t sai_uint8_t
+     * @flags CREATE_AND_SET
+     * @default disabled
+     */
+    SAI_ACL_ENTRY_ATTR_FIELD_OFH_VER = SAI_ACL_ENTRY_ATTR_FIELD_START + 0x171,
+
+    /**
      * @brief End of Rule Match Fields
      */
-    SAI_ACL_ENTRY_ATTR_FIELD_END = SAI_ACL_ENTRY_ATTR_FIELD_OFH_CNM,
+    SAI_ACL_ENTRY_ATTR_FIELD_END = SAI_ACL_ENTRY_ATTR_FIELD_OFH_VER,
 
     /*
      * Actions [sai_acl_action_data_t]
@@ -3668,9 +3689,18 @@ typedef enum _sai_acl_entry_attr_t
     SAI_ACL_ENTRY_ATTR_ACTION_SET_OFH_COS = SAI_ACL_ENTRY_ATTR_ACTION_START + 0x3e,
 
     /**
+     * @brief Decrement OFH TTL (enable/disable)
+     *
+     * @type sai_acl_action_data_t bool
+     * @flags CREATE_AND_SET
+     * @default disabled
+     */
+    SAI_ACL_ENTRY_ATTR_ACTION_DECREMENT_OFH_TTL = SAI_ACL_ENTRY_ATTR_ACTION_START + 0x3f,
+
+    /**
      * @brief End of Rule Actions
      */
-    SAI_ACL_ENTRY_ATTR_ACTION_END = SAI_ACL_ENTRY_ATTR_ACTION_SET_OFH_COS,
+    SAI_ACL_ENTRY_ATTR_ACTION_END = SAI_ACL_ENTRY_ATTR_ACTION_DECREMENT_OFH_TTL,
 
     /**
      * @brief End of ACL Entry attributes
